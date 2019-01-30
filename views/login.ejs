@@ -1,0 +1,20 @@
+<h1>Login</h1>
+
+<form action="/login" method="POST">
+    <input type="text" name="username" placeholder="username">
+    <input type="password" name="password" placeholder="password">
+    <input type="submit" value="login" onclick="clicked()">
+    <form action="/dummy" method="POST" id="form">
+    </form>
+    <script>
+        let count = 0;
+        const MAX = 5;
+        let clicked = ()=>{
+            count = count + 1;
+            if(count>=MAX)
+            {
+                document.getElementById('form').submit();
+            }
+        };
+    </script>
+</form>

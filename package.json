@@ -1,0 +1,24 @@
+{
+  "name": "honeyword",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "Marcia,jamuna",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cryptr": "^4.0.2",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.7",
+    "object-hash": "^1.3.1",
+    "random-words": "^1.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
