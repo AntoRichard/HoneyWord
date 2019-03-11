@@ -11,19 +11,30 @@
 <body>
     <h2>Try again later!!!!</h2>
     <span id="ip"></span>
+    <h2 id="hell"></h2>
+    <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
     <script>
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            } else {
-                x.innerHTML = "Geolocation is not supported by this browser.";
-            }
-        }
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDxCp4rRt3RgqB0Np96F0hLfICulw9ts2Q",
+            authDomain: "honeyword-3d4e1.firebaseapp.com",
+            databaseURL: "https://honeyword-3d4e1.firebaseio.com",
+            projectId: "honeyword-3d4e1",
+            storageBucket: "",
+            messagingSenderId: "201836874777"
+        };
+        firebase.initializeApp(config);
+        let getIp, lat=12.8698817, lng=80.2162332;
 
-        function showPosition(position) {
-            window.alert("Latitude: " + position.coords.latitude +
-                "<br>Longitude: " + position.coords.longitude);
-        }
+        //function check() {
+            navigator.geolocation.getCurrentPosition((position) => {
+                latt = position.coords.latitude;
+                lngg = position.coords.longitude;
+                document.querySelector("#hell").innerHTML = lat+'\n'+lng;
+                console.log(lat + '\n' + lng);
+            });
+        //}
+
 
         function getUserIP(onNewIP) { //  onNewIp - your listener function for new IPs
             //compatibility for firefox and chrome
@@ -65,8 +76,21 @@
         // Usage
 
         getUserIP(function (ip) {
-            document.getElementById("ip").innerHTML = ip ;
+            //document.getElementById("ip").innerHTML = ip;
+            console.log(ip);
+            getIp = ip;
         });
+
+        window.setTimeout(function(){
+            let db = firebase.database().ref('fraud');
+            let data = {
+               ip:getIp,
+                latitude : lat,
+                longitude : lng
+            }
+            console.log(data);
+            db.push(data);
+        },5000)
     </script>
 </body>
 

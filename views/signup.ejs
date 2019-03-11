@@ -1,7 +1,28 @@
-<h1>signup</h1>
+<%- include('./partials/header.ejs') %>
 
-<form action="/signup" method="POST">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <input type="submit" value="signup">
-</form>
+<section id="sec" style="height: 100vh; background: #e1f5fe ">
+    <div class="row" style="padding-left: 290px; padding-top: 100px;">
+        <div class="col s12 m7">
+            <div class="card">
+                <div class="card-image">
+                    <span class="card-title"></span>
+                </div>
+                <div class="card-content">
+                    <form action="/signup" method="POST">
+                        <p style="font-size: 24px; padding-bottom: 6px;">
+                            SIGN UP
+                        </p>
+                        <label for="">
+                            <input type="text" name="username" placeholder="username" style="padding-bottom: 5px;"><br>
+                        </label>
+                        <input type="password" name="password" placeholder="password" style="padding-bottom: 5px;"><br>
+                        <input type="submit" class="btn btn-primary" value="signup" style="align-items: center;">
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('./partials/footer.ejs')%>
