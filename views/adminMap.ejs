@@ -10,9 +10,25 @@
 </style>
 <h3>Intruder's Location</h3>
 <!--The div element for the map -->
+Latitude : <span id="lat"><%=lat%></span><br>
+Longitude : <span id="lng"><%=lng%></span>
 <div id="map"></div>
+<script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
+
 <script>
+    var config = {
+        apiKey: "AIzaSyDxCp4rRt3RgqB0Np96F0hLfICulw9ts2Q",
+        authDomain: "honeyword-3d4e1.firebaseapp.com",
+        databaseURL: "https://honeyword-3d4e1.firebaseio.com",
+        projectId: "honeyword-3d4e1",
+        storageBucket: "",
+        messagingSenderId: "201836874777"
+    };
+    firebase.initializeApp(config);
     // Initialize and add the map
+    let latt = document.getElementById("lat").innerHTML;
+    let lngg = document.getElementById("lng").innerHTML;
+    console.log(latt+lngg);
     function initMap() {
         // The location of Uluru
         var uluru = {
@@ -37,7 +53,8 @@
     * The key parameter will contain your own API key (which is not needed for this tutorial)
     * The callback parameter executes the initMap() function
     -->
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD37UizytAiQ7AefQr-4WqfcWFa6FZajw0&callback=initMap">
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD37UizytAiQ7AefQr-4WqfcWFa6FZajw0&callback=initMap">
 </script>
 
 <%- include('./partials/footer.ejs')%>

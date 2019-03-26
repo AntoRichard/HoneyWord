@@ -1,6 +1,6 @@
 <%- include('./partials/header.ejs') %>
 
-<section id="sec" style="height: 100vh; background: #e1f5fe ">
+<section id="sec" style="height: 100vh; background: whitesmoke ">
   <div class="row" style="padding-left: 290px; padding-top: 100px;">
     <div class="col s12 m7">
       <div class="card">
@@ -8,6 +8,7 @@
           <span class="card-title"></span>
         </div>
         <div class="card-content">
+          <h4>Login Page</h4>
           <form action="/login" method="POST">
             <input type="text" name="username" placeholder="username" />
             <input type="password" name="password" placeholder="password" />
@@ -15,8 +16,7 @@
               type="submit"
               value="login"
               class="btn btn-primary"
-              onclick="clicked()"
-              style="align-items: center;"
+              style="align-items: center;background-color: #f67590"
             />
           </form>
           <form action="/dummy" method="POST" id="form"></form>
@@ -25,37 +25,5 @@
     </div>
   </div>
 </section>
-<script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDxCp4rRt3RgqB0Np96F0hLfICulw9ts2Q",
-    authDomain: "honeyword-3d4e1.firebaseapp.com",
-    databaseURL: "https://honeyword-3d4e1.firebaseio.com",
-    projectId: "honeyword-3d4e1",
-    storageBucket: "",
-    messagingSenderId: "201836874777"
-  };
-  firebase.initializeApp(config);
-  let db = firebase.database().ref("count");
-
-  function clicked() {
-    //db.update(data);
-
-    let ref = db.on("value", gotData, err);
-
-    function gotData(data) {
-      console.log("data : " + data.val().count);
-    }
-
-    function err() {
-      console.log("err");
-    }
-    //db.push(count);
-    //if (count >= MAX) {
-    //    document.getElementById('form').submit();
-    //}
-  }
-</script>
 
 <%- include('./partials/footer.ejs')%>
